@@ -1,0 +1,41 @@
+<div class="row" *ngIf="cartVisible">
+  <div class="col-lg-12">
+      <div class="panel panel-default cartDetails">
+          <!-- Default panel contents -->
+          <div class="panel-heading" >Cart Details</div>
+          
+          
+          <div class="panel-content" *ngIf="products.length<=0; else elseBlock">No Item found...</div>
+          <!-- List group -->
+          <ng-template #elseBlock>
+              <div class="cart-content">
+                  
+            <ul class="list-group">
+              <li class="list-group-item jumbotron" *ngFor="let product of products">
+                <div class="row">
+                  <div class="col-lg-6">
+                      <strong>{{product.name}}</strong>
+                  </div>
+                  <div class="col-lg-3">
+                    <span>${{product.price}}</span> 
+                   
+                  </div>
+                  <div class="col-lg-3">
+                      <button class="btn btn-primary" (click)="deleteFromCart(product)">Remove</button>
+                  </div>
+                </div>
+              </li>      
+            </ul>
+          </div>
+          <hr/>
+          Total: ${{totalPrice}}
+          </ng-template>
+        
+       
+        </div>
+  </div>
+  <div class="col-lg-12">
+    <div class="col-lg-6"><strong><a (click)=clearCart()>Clear Cart</a></strong></div>
+    <div class="col-lg-6"><strong><a (click)=hideCart()>Hide Cart</a></strong></div>
+  </div>
+</div>

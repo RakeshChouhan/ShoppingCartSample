@@ -1,0 +1,7 @@
+.cart-content{
+    max-height: 300px;
+    overflow-y:scroll;
+}
+cartDetails{
+    border:3px solid rgb(22, 20, 20);
+}
